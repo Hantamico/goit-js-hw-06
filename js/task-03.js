@@ -15,11 +15,8 @@ const images = [
 
 const listEl = document.querySelector(`ul.gallery`);
 
-for (const image of images){
-  const imageEl = document.createElement(`img`);
-  imageEl.src = image.url;
-  imageEl.alt = image.alt;
-  listEl.append(imageEl);
-};
+const markup = images
+  .map((image) => `<li><img class="image" src ="${image.url} alt="${image.alt}"></img></li>`)
+  .join('');
 
-
+listEl.insertAdjacentHTML("beforeend", markup);
